@@ -1,0 +1,305 @@
+/* ============================================================
+   CHAI Dessert und Kaffee - Oldenburg
+
+   Aufbau und Proportionen nach blankstreet.com:
+   feste, transparente Navigation ueber einem Vollbild, danach ein
+   kurzer Wechsel aus leeren Flaechen und einem vollflaechigen
+   Farbblock. Die volle Karte liegt auf einer eigenen Seite.
+
+   Abschnittsfolge der Startseite:
+   1  Foto, ganzer Bildschirm, Text darauf
+   2  leere Flaeche, ein Foto daneben
+   3  unscharfes Foto aus dem Cafe, Text darauf
+   4  leere Flaeche, zwei Fotos
+   5  Fusszeile in Navy
+
+   Farben ausschliesslich aus dem Logo: Creme vom Aufkleber,
+   Navy vom Teeglas, Chai-Rot vom Tee.
+   Kanten durchgehend hart, ohne Rundung.
+   ============================================================ */
+
+:root{
+  color-scheme: light;
+
+  --bg:        #F2E8D7;
+  --bg-warm:   #E9DAC1;
+  --surface:   #FCF8EE;
+  --line:      #D9C8AC;
+  --line-soft: #E6D8C0;
+
+  --ink:       #14303C;
+  --ink-2:     #40606D;
+
+  --accent:     #C0361F;
+  --accent-ink: #A82F1B;
+  --on-accent:  #FFF6EC;
+
+  --navy:           #14303C;
+  --on-navy:        #F2E8D7;
+  --on-navy-2:      #C2D2D8;
+  --accent-on-navy: #EE8064;
+
+  --pad-x: clamp(20px, 4vw, 40px);
+  --wrap: 1360px;
+  --head-h: 68px;
+}
+
+*,*::before,*::after{ box-sizing:border-box }
+
+html{ scroll-behavior:smooth }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto } }
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Karla","Segoe UI",system-ui,sans-serif;
+  font-size:20px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+img{ max-width:100%; height:auto; display:block }
+a{ color:inherit }
+
+/* ---------- Typografie ---------- */
+h1,h2,h3,h4{ font-family:"Marcellus",Georgia,serif; font-weight:400; margin:0; letter-spacing:-.005em }
+.h-hero{ font-size:clamp(2.6rem, 5.6vw, 3.75rem); line-height:.95 }
+.h-block{ font-size:clamp(2.1rem, 4.4vw, 3.45rem); line-height:.95 }
+.h-card{ font-size:clamp(1.4rem, 2vw, 1.6rem); line-height:1.05 }
+
+.label{
+  font-size:.8rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--ink-2); margin:0 0 18px;
+}
+p{ margin:0 0 18px }
+
+.skip{
+  position:absolute; left:-9999px; top:0; z-index:100;
+  background:var(--accent); color:var(--on-accent); padding:12px 20px;
+}
+.skip:focus{ left:0 }
+
+:where(a,button,input,summary):focus-visible{ outline:2px solid var(--accent-ink); outline-offset:3px }
+
+/* ---------- Aktionen ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; white-space:nowrap;
+  font-family:inherit; font-size:1rem; font-weight:700; letter-spacing:.03em; text-transform:uppercase;
+  padding:15px 30px; border:1px solid transparent; text-decoration:none; cursor:pointer;
+  transition:background-color .18s, border-color .18s, color .18s, transform .18s;
+}
+.btn:active{ transform:translateY(1px) }
+.btn-solid{ background:var(--accent); color:var(--on-accent) }
+.btn-solid:hover{ background:var(--accent-ink) }
+.btn-line{ background:transparent; color:var(--ink); border-color:var(--ink) }
+.btn-line:hover{ background:var(--ink); color:var(--bg) }
+.on-dark .btn-line{ color:#FFFFFF; border-color:#FFFFFF }
+.on-dark .btn-line:hover{ background:#FFFFFF; color:var(--navy) }
+.on-red .btn-line{ color:var(--on-accent); border-color:var(--on-accent) }
+.on-red .btn-line:hover{ background:var(--on-accent); color:var(--accent) }
+
+.link-u{
+  display:inline-block; font-size:1rem; font-weight:700; letter-spacing:.03em;
+  text-transform:uppercase; text-decoration:none; padding-bottom:3px;
+  border-bottom:2px solid currentColor;
+}
+
+/* ---------- Navigation, nach dem Vorbild ---------- */
+.site-header{
+  position:fixed; inset:0 0 auto 0; z-index:60;
+  height:var(--head-h);
+  background:var(--bg); color:var(--ink);
+  transition:background-color .3s, color .3s;
+}
+.site-header.is-over-hero{ background:transparent; color:#FFFFFF }
+
+.nav{
+  display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
+  height:var(--head-h); width:100%; padding-inline:var(--pad-x);
+}
+.nav-links{ display:flex; align-items:center; gap:20px; list-style:none; margin:0; padding:0 }
+.nav-links a{
+  text-decoration:none; font-size:1rem; font-weight:700; letter-spacing:.03em;
+  text-transform:uppercase; color:inherit;
+}
+.nav-links a:hover{ opacity:.72 }
+
+.brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit; justify-self:center }
+.brand img{ width:30px; height:30px }
+.brand b{ font-family:"Marcellus",Georgia,serif; font-weight:400; font-size:1.28rem; letter-spacing:.2em; line-height:1 }
+
+.nav-end{ display:flex; align-items:center; justify-content:flex-end; gap:18px }
+.nav-end a{
+  text-decoration:none; font-size:1rem; font-weight:700; letter-spacing:.03em;
+  text-transform:uppercase; color:inherit;
+}
+.nav-end a:hover{ opacity:.72 }
+
+.nav-toggle{
+  display:none; background:none; border:0; padding:0; color:inherit; cursor:pointer;
+  font:inherit; font-size:1rem; font-weight:700; letter-spacing:.03em; text-transform:uppercase;
+}
+
+@media (max-width:900px){
+  .nav{ grid-template-columns:auto 1fr auto }
+  .nav-links{ display:none }
+  .nav-toggle{ display:block }
+  .nav-links.is-open{
+    display:flex; position:fixed; left:0; right:0; top:var(--head-h); bottom:0;
+    flex-direction:column; align-items:flex-start; gap:0;
+    background:var(--bg); color:var(--ink); padding:12px 0; z-index:59;
+  }
+  .nav-links.is-open a{ display:block; padding:18px var(--pad-x); font-size:1.5rem }
+}
+
+/* ---------- 1 Vollbild ---------- */
+.hero{
+  position:relative; min-height:100dvh; display:flex; align-items:flex-end;
+  color:#FFFFFF; overflow:hidden; isolation:isolate;
+}
+.hero-media{ position:absolute; inset:0; z-index:-1 }
+.hero-media img{ width:100%; height:100%; object-fit:cover; object-position:center 42% }
+.hero-media::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(16,24,28,.62) 0%, rgba(16,24,28,.22) 30%,
+                                     rgba(16,24,28,.34) 58%, rgba(16,24,28,.80) 100%);
+}
+.hero-inner{
+  width:100%; max-width:var(--wrap); margin-inline:auto; padding-inline:var(--pad-x);
+  padding-block:0 clamp(48px,9vh,104px);
+}
+.hero h1{ color:#FFFFFF; max-width:14ch; margin-bottom:20px }
+.hero p{ color:rgba(255,255,255,.9); max-width:44ch; font-size:1.1rem }
+.hero .actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:30px }
+.hero-note{ margin:26px 0 0; font-size:.95rem; color:rgba(255,255,255,.82) }
+
+/* ---------- 2 und 4: leere Flaeche ---------- */
+.plain{ padding-block:clamp(72px,11vw,132px) }
+.plain-grid{
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+  gap:clamp(32px,5vw,72px); align-items:center;
+  width:100%; max-width:var(--wrap); margin-inline:auto; padding-inline:var(--pad-x);
+}
+.plain-copy h2{ margin-bottom:22px }
+.plain-copy p{ font-size:1.1rem; max-width:44ch }
+.plain-figure{ margin:0 }
+.plain-figure img{ width:100% }
+@media (max-width:900px){ .plain-grid{ grid-template-columns:1fr } }
+
+.duo-head{ width:100%; max-width:var(--wrap); margin:0 auto clamp(34px,5vw,56px); padding-inline:var(--pad-x) }
+.duo{
+  display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,3.4vw,48px);
+  width:100%; max-width:var(--wrap); margin-inline:auto; padding-inline:var(--pad-x);
+}
+.duo figure{ margin:0 }
+.duo img{ width:100%; aspect-ratio:5/3; object-fit:cover; margin-bottom:22px }
+.duo h3{ margin-bottom:12px }
+.duo p{ font-size:1.05rem; color:var(--ink-2); max-width:40ch }
+@media (max-width:820px){ .duo{ grid-template-columns:1fr; gap:48px } }
+
+/* ---------- 3 Farbblock ---------- */
+/* Unscharfes Foto aus dem Cafe traegt die Flaeche.
+   Der Schleier ist dunkel und warm, damit das Bild sichtbar bleibt
+   und der Text trotzdem sicher lesbar ist. */
+.block-photo{
+  position:relative; isolation:isolate; overflow:hidden;
+  background:#2E120C; color:var(--on-accent); padding-block:clamp(80px,13vw,168px);
+}
+.block-media{ position:absolute; inset:0; z-index:-1 }
+.block-media img{
+  width:100%; height:100%; object-fit:cover; object-position:center 45%;
+  filter:blur(14px) saturate(1.08); transform:scale(1.1);
+}
+.block-media::after{ content:""; position:absolute; inset:0; background:rgba(46,18,12,.56) }
+.block-photo .inner{ width:100%; max-width:1000px; margin-inline:auto; padding-inline:var(--pad-x) }
+.block-photo .label{ color:rgba(255,246,236,.92) }
+.block-photo h2{ color:var(--on-accent); margin-bottom:24px; max-width:18ch }
+.block-photo p{ color:rgba(255,246,236,.94); font-size:1.15rem; max-width:52ch }
+.block-photo .actions{ margin-top:32px }
+
+/* ---------- Speisekarte ---------- */
+.karte-page{ padding-block:calc(var(--head-h) + clamp(48px,7vw,88px)) clamp(64px,9vw,110px) }
+.karte-head{ width:100%; max-width:var(--wrap); margin:0 auto clamp(34px,5vw,52px); padding-inline:var(--pad-x) }
+.karte-head p{ font-size:1.1rem; color:var(--ink-2); max-width:52ch; margin-top:18px }
+.karte-body{ width:100%; max-width:var(--wrap); margin-inline:auto; padding-inline:var(--pad-x) }
+
+.chips{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:38px }
+.chip{
+  font:inherit; font-size:.94rem; font-weight:700; letter-spacing:.03em; text-transform:uppercase;
+  padding:11px 20px; border:1px solid var(--line); background:transparent; color:var(--ink-2); cursor:pointer;
+  transition:background-color .18s, color .18s, border-color .18s;
+}
+.chip:hover{ color:var(--ink); border-color:var(--ink) }
+.chip[aria-pressed="true"]{ background:var(--accent); border-color:var(--accent); color:var(--on-accent) }
+
+.menu-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1px; background:var(--line-soft) }
+.item{ background:var(--bg); padding:24px 26px; display:flex; flex-direction:column; gap:6px; transition:background-color .18s }
+.item:hover{ background:var(--surface) }
+.item-top{ display:flex; align-items:baseline; gap:16px }
+.item-top h3{ margin:0; font-size:1.18rem; flex:1; line-height:1.2 }
+.price{ font-weight:700; font-size:1rem; font-variant-numeric:tabular-nums; color:var(--accent-ink); white-space:nowrap }
+.item p{ margin:0; font-size:.98rem; color:var(--ink-2); line-height:1.45 }
+
+.cat-head{ grid-column:1/-1; background:var(--bg); padding:52px 26px 18px }
+.cat-head.is-first{ padding-top:0 }
+.cat-head h3{ font-size:1.9rem; margin:0 0 8px }
+.cat-head p{ margin:0; font-size:1rem; color:var(--ink-2); max-width:62ch }
+
+.badges{ display:flex; flex-wrap:wrap; gap:10px; margin-top:38px; list-style:none; padding:0 }
+.badges li{
+  font-size:.9rem; font-weight:700; letter-spacing:.03em; text-transform:uppercase;
+  color:var(--ink-2); border:1px solid var(--line); padding:9px 18px;
+}
+
+/* ---------- Fusszeile ---------- */
+.site-footer{ background:var(--navy); color:var(--on-navy); padding-block:clamp(56px,8vw,88px) 34px }
+.foot-grid{
+  display:grid; grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr)); gap:40px;
+  width:100%; max-width:var(--wrap); margin-inline:auto; padding-inline:var(--pad-x);
+}
+.foot-word{ font-family:"Marcellus",Georgia,serif; font-weight:400; font-size:2.4rem; letter-spacing:.2em; margin:0 0 18px; line-height:1 }
+.foot-grid h4{ font-family:"Karla",sans-serif; font-size:.8rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--on-navy-2); margin:0 0 16px }
+.foot-grid ul{ list-style:none; margin:0; padding:0; display:grid; gap:10px }
+.foot-grid a{ text-decoration:none; font-size:1rem; color:var(--on-navy-2) }
+.foot-grid a:hover{ color:var(--on-navy) }
+.foot-grid p{ font-size:1rem; color:var(--on-navy-2); margin:0 0 10px }
+.hours-row{ display:flex; justify-content:space-between; gap:16px; font-size:1rem; color:var(--on-navy-2); font-variant-numeric:tabular-nums }
+.hours-row + .hours-row{ margin-top:8px }
+.foot-bottom{
+  width:100%; max-width:var(--wrap); margin:clamp(44px,6vw,64px) auto 0;
+  padding-inline:var(--pad-x); padding-top:22px; border-top:1px solid rgba(242,232,215,.2);
+  display:flex; flex-wrap:wrap; gap:14px 28px; justify-content:space-between; font-size:.9rem; color:var(--on-navy-2);
+}
+@media (max-width:900px){ .foot-grid{ grid-template-columns:1fr 1fr } .foot-grid > div:first-child{ grid-column:1/-1 } }
+@media (max-width:560px){ .foot-grid{ grid-template-columns:1fr } }
+
+/* ---------- Rechtsseiten ---------- */
+.legal{
+  padding-block:calc(var(--head-h) + clamp(40px,6vw,72px)) clamp(56px,8vw,88px);
+  max-width:70ch; margin-inline:auto; padding-inline:var(--pad-x);
+}
+.legal h1{ font-size:clamp(2.1rem,4vw,2.9rem); line-height:1; margin-bottom:20px }
+.legal h2{ font-size:1.5rem; margin-top:44px; margin-bottom:12px }
+.legal p, .legal li{ font-size:1.05rem; line-height:1.55 }
+.legal ul{ padding-left:22px }
+.legal address{ font-style:normal; margin-bottom:18px }
+.legal mark{
+  display:block; background:var(--bg-warm); color:var(--ink);
+  border-left:3px solid var(--accent); padding:16px 20px; font-size:1rem;
+}
+.legal a{ color:var(--accent-ink) }
+.back-link{ margin-top:48px }
+
+/* ---------- Bewegung ---------- */
+.js-reveal .reveal{ opacity:0; transform:translateY(20px) }
+.js-reveal .reveal.is-in{
+  opacity:1; transform:none;
+  transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+}
+@media (prefers-reduced-motion: reduce){
+  .js-reveal .reveal{ opacity:1; transform:none }
+  .js-reveal .reveal.is-in{ transition:none }
+  *{ animation-duration:.001ms !important; transition-duration:.001ms !important }
+}
