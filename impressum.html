@@ -11,26 +11,32 @@
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20260908-1">
 </head>
 <body>
 
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 
 <header class="site-header">
-  <div class="nav">
+  <nav class="nav" aria-label="Hauptnavigation">
+    <div class="nav-contact">
+      <span class="nav-status" data-status hidden><span class="dot" aria-hidden="true"></span><span data-status-short></span></span>
+      <a href="tel:+491785766586">Anrufen</a>
+    </div>
+    <a class="brand" href="index.html" aria-label="CHAI Dessert und Kaffee, Startseite">
+      <span class="logo-symbol" aria-hidden="true">
+        <img class="logo-symbol__cup" src="assets/img/logo-mark.png" alt="" width="400" height="400">
+        <span class="logo-symbol__steam"><i></i><i></i><i></i></span>
+      </span>
+      <b>CHAI</b>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hauptmenue">Menü</button>
     <ul class="nav-links" id="hauptmenue">
-      <li><a href="speisekarte.html">Karte</a></li>
+      <li><a href="speisekarte.html">Speisekarte</a></li>
       <li><a href="index.html#ube">Ube</a></li>
       <li><a href="index.html#standort">Standort</a></li>
     </ul>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hauptmenue">Menü</button>
-    <a class="brand" href="index.html" aria-label="CHAI Dessert und Kaffee, Startseite">
-      <img src="assets/img/logo-glass.png" alt="" width="30" height="30">
-      <b>CHAI</b>
-    </a>
-    <div class="nav-end"><a href="tel:+491785766586">Anrufen</a></div>
-  </div>
+  </nav>
 </header>
 
 <main class="legal" id="inhalt">
@@ -78,11 +84,60 @@
 </main>
 
 <footer class="site-footer">
-  <div class="foot-bottom" style="margin-top:0;border-top:0;padding-top:0">
+  <div class="foot-top">
+    <div class="foot-mark reveal">
+      <span class="logo-symbol logo-symbol--footer" aria-hidden="true">
+        <img class="logo-symbol__cup" src="assets/img/logo-mark.png" alt="" width="400" height="400" loading="lazy" decoding="async">
+        <span class="logo-symbol__steam"><i></i><i></i><i></i></span>
+      </span>
+    </div>
+    <p class="foot-claim">Sei anders. Sei besonders. Sei CHAI.</p>
+    <p class="foot-status" data-status hidden><span class="dot" aria-hidden="true"></span><span data-status-text></span></p>
+  </div>
+
+  <div class="foot-grid">
+    <div>
+      <h4>Adresse</h4>
+      <p class="foot-address">
+        Schloßplatz 3<br>
+        26122 Oldenburg<br>
+        Schlosshöfe, Erdgeschoss
+      </p>
+      <a class="link-u foot-maps" href="https://maps.google.com/?q=Chai,+Dessert+und+Kaffee,+Schlo%C3%9Fplatz+3,+26122+Oldenburg" target="_blank" rel="noopener">Route</a>
+    </div>
+    <div>
+      <h4>Seite</h4>
+      <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="speisekarte.html">Speisekarte</a></li>
+        <li><a href="index.html#ube">Ube</a></li>
+        <li><a href="index.html#standort">Standort</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Öffnungszeiten</h4>
+      <dl class="hours-list">
+        <div><dt>Montag bis Samstag</dt><dd>09:00 bis 19:00 Uhr</dd></div>
+        <div><dt>Sonntag</dt><dd>geschlossen</dd></div>
+      </dl>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <ul>
+        <li><a href="tel:+491785766586">+49 178 5766586</a></li>
+        <li><a href="mailto:chai.dessert.kaffee@gmail.com">chai.dessert.kaffee<span class="wbr"></span>@gmail.com</a></li>
+        <li><a href="https://www.instagram.com/chai.dessert.kaffee/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.facebook.com/p/CHAI-Dessert-und-Kaffee-61582278866664/" target="_blank" rel="noopener">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot-bottom">
     <span>© 2026 CHAI Dessert und Kaffee</span>
-    <span><a href="index.html">Startseite</a></span>
+    <span class="foot-legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
   </div>
 </footer>
 
+<script src="main.js?v=20260908-1" defer></script>
 </body>
 </html>

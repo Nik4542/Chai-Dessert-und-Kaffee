@@ -12,39 +12,43 @@
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/marcellus-400-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/karla-400-latin.woff2" crossorigin>
 <link rel="stylesheet" href="assets/fonts/fonts.css">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20260908-1">
 </head>
 <body>
 
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 
 <header class="site-header">
-  <div class="nav">
+  <nav class="nav" aria-label="Hauptnavigation">
+    <div class="nav-contact">
+      <span class="nav-status" data-status hidden><span class="dot" aria-hidden="true"></span><span data-status-short></span></span>
+      <a href="tel:+491785766586">Anrufen</a>
+    </div>
+    <a class="brand" href="index.html" aria-label="CHAI Dessert und Kaffee, Startseite">
+      <span class="logo-symbol" aria-hidden="true">
+        <img class="logo-symbol__cup" src="assets/img/logo-mark.png" alt="" width="400" height="400">
+        <span class="logo-symbol__steam"><i></i><i></i><i></i></span>
+      </span>
+      <b>CHAI</b>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hauptmenue">Menü</button>
     <ul class="nav-links" id="hauptmenue">
-      <li><a href="speisekarte.html">Karte</a></li>
+      <li><a href="speisekarte.html">Speisekarte</a></li>
       <li><a href="index.html#ube">Ube</a></li>
       <li><a href="index.html#standort">Standort</a></li>
     </ul>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hauptmenue">Menü</button>
-    <a class="brand" href="index.html" aria-label="CHAI Dessert und Kaffee, Startseite">
-      <img src="assets/img/logo-glass.png" alt="" width="30" height="30">
-      <b>CHAI</b>
-    </a>
-    <div class="nav-end">
-      <a href="tel:+491785766586">Anrufen</a>
-    </div>
-  </div>
+  </nav>
 </header>
 
 <main class="karte-page" id="inhalt">
 
   <div class="karte-head">
-    <h1 class="h-block">Die Karte</h1>
+    <h1 class="h-block">Die Speisekarte</h1>
     <p>Alles wird frisch zubereitet. Hafermilch und Mandelmilch gibt es zu jedem Kaffee. Preise für Kaffee, Tee und Süßes stehen auf der Tafel im Laden.</p>
   </div>
 
   <div class="karte-body">
-    <div class="chips" role="group" aria-label="Karte nach Kategorie filtern">
+    <div class="chips" role="group" aria-label="Speisekarte nach Kategorie filtern">
       <button class="chip" type="button" aria-pressed="true"  data-filter="alle">Alle</button>
       <button class="chip" type="button" aria-pressed="false" data-filter="ube">Ube</button>
       <button class="chip" type="button" aria-pressed="false" data-filter="frucht">Frucht-Mix</button>
@@ -72,6 +76,10 @@
       <article class="item" data-cat="ube"><div class="item-top"><h3>Hot Schoko Ube</h3><span class="price">4,90 €</span></div><p>Heiße Schokolade mit Ube</p></article>
 
       <!-- FRUCHT-MIX -->
+      <figure class="item item-foto" data-cat="ube">
+        <img src="assets/img/cat-ube.jpg" width="600" height="320" alt="Ube Getränk vor der Ube Menütafel im Café" loading="lazy" decoding="async">
+        <figcaption>Strawberry Iced Ube, direkt an der Theke</figcaption>
+      </figure>
       <div class="cat-head" data-cat="frucht"><div><h3>Frucht-Mix</h3><p>100 % natürliche Zutaten, ohne Zuckerzusatz, mit gefrorenen Früchten.</p></div></div>
       <article class="item" data-cat="frucht"><div class="item-top"><h3>Mango Coconut Dream</h3><span class="price">5,60 €</span></div><p>Mango, Kokos, Banane</p></article>
       <article class="item" data-cat="frucht"><div class="item-top"><h3>Green Detox</h3><span class="price">5,25 €</span></div><p>Spinat, Ananas, Apfel, Banane</p></article>
@@ -84,6 +92,10 @@
       <article class="item" data-cat="frucht"><div class="item-top"><h3>Chocolate Berry Delight</h3><span class="price">4,95 €</span></div><p>Schokolade, Beerenmix, Banane</p></article>
 
       <!-- DIRTY SODA -->
+      <figure class="item item-foto" data-cat="frucht">
+        <img src="assets/img/cat-frucht.jpg" width="600" height="320" alt="Zwei Frucht-Mix Becher mit CHAI Aufkleber" loading="lazy" decoding="async">
+        <figcaption>Frisch gemixt, ohne Zuckerzusatz</figcaption>
+      </figure>
       <div class="cat-head" data-cat="soda"><div><h3>Dirty Soda</h3><p>Sprudel trifft Kokoscreme. Zehn Sorten, alle frisch gemischt.</p></div></div>
       <article class="item" data-cat="soda"><div class="item-top"><h3>Blue Lagoon</h3><span class="price">5,45 €</span></div><p>Sprite, Blaubeere, Blue Curaçao, Kokoscreme</p></article>
       <article class="item" data-cat="soda"><div class="item-top"><h3>Raspberry Cream Sprite</h3><span class="price">5,45 €</span></div><p>Sprite, Himbeere, Zitrone, Kokoscreme</p></article>
@@ -97,6 +109,10 @@
       <article class="item" data-cat="soda"><div class="item-top"><h3>Dirty Mezzo Berry</h3><span class="price">5,30 €</span></div><p>Mezzo Mix, Himbeere, Blaubeere, Kokoscreme</p></article>
 
       <!-- CRÊPES -->
+      <figure class="item item-foto" data-cat="soda">
+        <img src="assets/img/cat-soda.jpg" width="600" height="320" alt="Drei Dirty Sodas in Bechern auf dem Holztisch" loading="lazy" decoding="async">
+        <figcaption>Sprudel trifft Kokoscreme</figcaption>
+      </figure>
       <div class="cat-head" data-cat="crepes"><div><h3>Crêpes</h3><p>Frisch gemacht. Extras: Banane oder Erdbeeren 0,50 €, mehr Schoko oder Lotus 0,70 €.</p></div></div>
       <article class="item" data-cat="crepes"><div class="item-top"><h3>Zimt und Zucker</h3><span class="price">3,45 €</span></div><p>Der Klassiker</p></article>
       <article class="item" data-cat="crepes"><div class="item-top"><h3>Zucker und Zitrone</h3><span class="price">3,45 €</span></div><p>Frisch und leicht</p></article>
@@ -108,6 +124,10 @@
       <article class="item" data-cat="crepes"><div class="item-top"><h3>Kids-Special</h3><span class="price">5,40 €</span></div><p>Montag bis Freitag: Nutella Crêpe und ein Cold Drink</p></article>
 
       <!-- KAFFEE UND MATCHA -->
+      <figure class="item item-foto" data-cat="crepes">
+        <img src="assets/img/cat-crepes.jpg" width="600" height="320" alt="Crêpe mit Pistaziencreme auf dem Teller" loading="lazy" decoding="async">
+        <figcaption>Dubai Crêpe mit Pistazien und Biscoff</figcaption>
+      </figure>
       <div class="cat-head" data-cat="kaffee"><div><h3>Kaffee und Matcha</h3><p>Hafer- und Mandelmilch möglich. Preise für die Klassiker stehen auf der Tafel im Laden.</p></div></div>
       <article class="item" data-cat="kaffee"><div class="item-top"><h3>Caramel Iced Latte</h3><span class="price">4,95 €</span></div><p>Espresso, Milch, Karamell, Eis</p></article>
       <article class="item" data-cat="kaffee"><div class="item-top"><h3>Pistazien Eis Latte</h3><span class="price">5,10 €</span></div><p>Espresso, Milch, Pistaziencreme</p></article>
@@ -121,12 +141,20 @@
       <article class="item" data-cat="kaffee"><div class="item-top"><h3>Chai Tea Collection</h3></div><p>Klassische Teesorten und Iced Tea</p></article>
 
       <!-- SÜSSES -->
+      <figure class="item item-foto" data-cat="kaffee">
+        <img src="assets/img/cat-kaffee.jpg" width="600" height="320" alt="Matcha Latte im CHAI Becher" loading="lazy" decoding="async">
+        <figcaption>Matcha wird bei uns aufgeschlagen</figcaption>
+      </figure>
       <div class="cat-head" data-cat="suess"><div><h3>Süßes</h3><p>Wechselndes Angebot in der Vitrine. Preise stehen an der Theke.</p></div></div>
       <article class="item" data-cat="suess"><div class="item-top"><h3>Croffles</h3></div><p>Waffel aus Croissant-Teig, täglich frisch gebacken</p></article>
       <article class="item" data-cat="suess"><div class="item-top"><h3>Türkische Süßigkeiten</h3></div><p>Baklava, Lokum und türkischer Honig mit Pistazien</p></article>
       <article class="item" data-cat="suess"><div class="item-top"><h3>Kuchen</h3></div><p>Hausgebacken, zum Beispiel Orangenkuchen oder Schokoladenkuchen mit Pistazien</p></article>
       <article class="item" data-cat="suess"><div class="item-top"><h3>Cheesecake</h3></div><p>Wechselnde Sorten aus der Vitrine</p></article>
       <article class="item" data-cat="suess"><div class="item-top"><h3>Belgische Schokolade</h3></div><p>Zum Mitnehmen</p></article>
+      <figure class="item item-foto" data-cat="suess">
+        <img src="assets/img/cat-suess.jpg" width="600" height="320" alt="Teller mit türkischen Süßigkeiten und Pistazien" loading="lazy" decoding="async">
+        <figcaption>Türkische Süßigkeiten aus der Vitrine</figcaption>
+      </figure>
     </div>
 
     <ul class="badges">
@@ -140,40 +168,60 @@
 </main>
 
 <footer class="site-footer">
+  <div class="foot-top">
+    <div class="foot-mark reveal">
+      <span class="logo-symbol logo-symbol--footer" aria-hidden="true">
+        <img class="logo-symbol__cup" src="assets/img/logo-mark.png" alt="" width="400" height="400" loading="lazy" decoding="async">
+        <span class="logo-symbol__steam"><i></i><i></i><i></i></span>
+      </span>
+    </div>
+    <p class="foot-claim">Sei anders. Sei besonders. Sei CHAI.</p>
+    <p class="foot-status" data-status hidden><span class="dot" aria-hidden="true"></span><span data-status-text></span></p>
+  </div>
+
   <div class="foot-grid">
     <div>
-      <p class="foot-word">CHAI</p>
-      <p>Dessert und Kaffee<br>Schloßplatz 3, 26122 Oldenburg<br>Schlosshöfe, Erdgeschoss</p>
+      <h4>Adresse</h4>
+      <p class="foot-address">
+        Schloßplatz 3<br>
+        26122 Oldenburg<br>
+        Schlosshöfe, Erdgeschoss
+      </p>
+      <a class="link-u foot-maps" href="https://maps.google.com/?q=Chai,+Dessert+und+Kaffee,+Schlo%C3%9Fplatz+3,+26122+Oldenburg" target="_blank" rel="noopener">Route</a>
     </div>
     <div>
       <h4>Seite</h4>
       <ul>
         <li><a href="index.html">Startseite</a></li>
+        <li><a href="speisekarte.html">Speisekarte</a></li>
         <li><a href="index.html#ube">Ube</a></li>
         <li><a href="index.html#standort">Standort</a></li>
       </ul>
     </div>
     <div>
       <h4>Öffnungszeiten</h4>
-      <div class="hours-row"><span>Montag bis Samstag</span><span>09:00 bis 19:00</span></div>
-      <div class="hours-row"><span>Sonntag</span><span>geschlossen</span></div>
+      <dl class="hours-list">
+        <div><dt>Montag bis Samstag</dt><dd>09:00 bis 19:00 Uhr</dd></div>
+        <div><dt>Sonntag</dt><dd>geschlossen</dd></div>
+      </dl>
     </div>
     <div>
       <h4>Kontakt</h4>
       <ul>
         <li><a href="tel:+491785766586">+49 178 5766586</a></li>
-        <li><a href="mailto:chai.dessert.kaffee@gmail.com">E-Mail schreiben</a></li>
+        <li><a href="mailto:chai.dessert.kaffee@gmail.com">chai.dessert.kaffee<span class="wbr"></span>@gmail.com</a></li>
         <li><a href="https://www.instagram.com/chai.dessert.kaffee/" target="_blank" rel="noopener">Instagram</a></li>
         <li><a href="https://www.facebook.com/p/CHAI-Dessert-und-Kaffee-61582278866664/" target="_blank" rel="noopener">Facebook</a></li>
       </ul>
     </div>
   </div>
+
   <div class="foot-bottom">
     <span>© 2026 CHAI Dessert und Kaffee</span>
-    <span><a href="impressum.html">Impressum</a> &nbsp; <a href="datenschutz.html">Datenschutz</a></span>
+    <span class="foot-legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
   </div>
 </footer>
 
-<script src="main.js" defer></script>
+<script src="main.js?v=20260908-1" defer></script>
 </body>
 </html>
